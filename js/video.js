@@ -7,6 +7,10 @@ window.addEventListener("load", function() {
 
 function playVideo() {
     video.play();
+	currentVolume = document.querySelector('#slider').value;
+	document.querySelector('#slider').innerHTML = currentVolume + '%';
+	video.volume = currentVolume / 100;
+	document.querySelector('#volume').innerHTML = currentVolume + '%';
 };
 
 function pauseVideo() {
@@ -71,6 +75,7 @@ document.querySelector('#mute').addEventListener("click", function() {
 document.querySelector('#slider').addEventListener("change", function() {
 	console.log("Volume Before: " + video.volume);
 	currentVolume = document.querySelector('#slider').value;
+	document.querySelector('#volume').innerHTML = currentVolume + '%';
 	video.volume = currentVolume / 100;
 	console.log("Volume After: " + video.volume);
 
